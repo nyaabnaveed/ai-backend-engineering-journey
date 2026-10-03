@@ -92,10 +92,15 @@ def find_student(students, name):
             return i
     return None
 
+# passing students using list comprehension
+def passing_students_listCmp(students):
+    passList = [i["name"] for i in students if i["marks"] >= 35]
+    print(passList)
+
 # run loop and do actions according to users options until user says no
 choice = "yes"
 while (choice == "yes"):
-    print("\nOptions:\n1.\tList of all students with their marks\n2.\tStudent with highest marks\n3.\tAverage of marks\n4.\tList of passing students\n5.\tList of failed students\n6.\tSearch student")
+    print("\nOptions:\n1.\tList of all students with their marks\n2.\tStudent with highest marks\n3.\tAverage of marks\n4.\tList of passing students\n5.\tList of failed students\n6.\tSearch student\n7.\tList of passing students (List Comprehension)")
     option = int(input("Enter your option: "))
     match option:       # alternative of switch bcz python does not have switch
         case 1:
@@ -114,6 +119,9 @@ while (choice == "yes"):
                 print("Student Found!\n", a)
             else:
                 print("Student not found!")
+        case 7:
+            print("List of passing students:")
+            passing_students_listCmp(students)
         case _:
             print("Invalid Option!")
 
