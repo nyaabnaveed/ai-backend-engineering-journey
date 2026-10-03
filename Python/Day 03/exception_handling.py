@@ -17,3 +17,5 @@ except ZeroDivisionError:
     print("Can not divide by zero!")
 except ValueError:
     print("Invalid Input!")
+
+print("Exiting the program...")
