@@ -41,25 +41,24 @@ def print_name_and_marks(students):
 
 # 2. Function to find student with highest marks
 def highest_marks(students):
-    highest = 0
+    if not students:
+        print("List is empty!")
+        return 
+    highest = float('-inf')
     # finds highest marks & assigns that to highest variable
     for i in students:
         if (i["marks"] > highest):
             highest = i["marks"]
-
-    # compares highest marks with marks of entire list and prints 
-    # the name of student that has highest marks
-    for i in students:
-        if (i["marks"] == highest):
-            print("\nStudent with highest marks: ", i["name"])
+            name = i["name"]
+    print("\nStudent with highest marks: ", name)
 
 # 3. Function to print average marks
 def average_marks(students):
-    sum = 0
+    total_marks = 0
     for i in students:
-        sum = sum + i["marks"]
+        total_marks = total_marks + i["marks"]
 
-    average = sum/len(students)
+    average = total_marks/len(students)
     print("\nAverage Marks: ", average)
          
 # 4. Function to mke list of passing students
@@ -86,7 +85,8 @@ def failed_students(students):
 
 
 # 6. Function to find a student and return its details(dictionary)
-def find_student(students, name):
+def find_student(students):
+    name = input("Enter name of student you want to search: ")
     for i in students:
         if (i["name"] == name):
             return i
@@ -114,7 +114,7 @@ while (choice == "yes"):
         case 5:
             failed_students(students)
         case 6:
-            a = find_student(students, "Usman")
+            a = find_student(students)
             if (a != None):
                 print("Student Found!\n", a)
             else:
